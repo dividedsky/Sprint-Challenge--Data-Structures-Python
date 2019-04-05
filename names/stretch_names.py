@@ -7,9 +7,10 @@ f = open("names_1.txt", "r")
 names_1 = f.read().split("\n")  # List containing 10000 names
 f.close()
 
-f = open("names_2.txt", "r")
-names_2 = f.read().split("\n")  # List containing 10000 names
-f.close()
+# f = open("names_2.txt", "r")
+# names_2 = f.read().split("\n")  # List containing 10000 names
+# f.close()
+
 
 duplicates = []
 
@@ -20,7 +21,11 @@ names_1.sort()
 def find_name(names, target):
     mid = len(names) // 2
     if len(names) <= 1:
-        return names[0] == target
+        # if names[0] == target:
+        #     duplicates.append(target)
+        return
+    if len(names) == 0:
+        return
     if names[mid] == target:
         duplicates.append(target)
     if names[mid] > target:
@@ -29,8 +34,10 @@ def find_name(names, target):
         find_name(names[mid:], target)
 
 
-for name in names_2:
-    find_name(names_1, name)
+with open("names_2.txt", "r") as f:
+    for line in f:
+        name = line.strip()
+        find_name(names_1, name)
 
 end_time = time.time()
 print(f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
