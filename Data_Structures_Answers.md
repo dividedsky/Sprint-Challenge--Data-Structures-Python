@@ -20,7 +20,7 @@ Add your answers to the questions below.
 * I think it's O(n), since we're building lists based on the number of names
 
 7. What is the runtime complexity of your optimized code in `names.py`?
-* O(n logN), since we're using a binary search tree to insert and retrieve names, but still have to traverse one whole list to build the search tree.
+* O(n logN), since we're using a binary search tree to insert and retrieve names, but still have to traverse a whole list to build the search tree and check for duplicates
 
 8. What is the space complexity of your optimized code in `names.py`?
 * Still O(n), I think.
